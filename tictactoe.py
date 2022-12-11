@@ -2,6 +2,36 @@
 # The rules are simple: two players take turns placing either an X or an O on a 3x3 grid, 
 # with the goal of getting three of their marks in a row (vertically, horizontally, or diagonally). 
 
+# TODO
+# decision tree representation
+# minimax algorithm
+# evaluation function:  
+# Tic-tac-toe can be brute forced because the number of possible states is small.
+# If we assume a deep tree, we can use a heuristic to evaluate the board state.
+# Each board state must be evaluated to determine if it is a win, loss, or draw. these are endstates. 
+# All rows, columns, and diagonals must be checked for a win. tree iteration can stop if a win is found.
+# Each non-endstate must be evaluated to determine the best following move to make.
+# Good board states when a heuristic is used examined using the following:
+# all rows, columns, and diagonals must be checked for their potential. additionally, the board as a whole can be checked for its potential.
+# if the player has two in a row, and there is a free space, and the player is about to move, it is a good board state. the heuristic value must be high.
+# row, column, and diagonal values can be summed to determine the board state value.
+# to determine a row value, we can use the following:
+# if the row is empty, the value is 0.
+# if the row has one opponent piece, the value is -1.
+# if the row has one player piece, the value is 1.
+# if the row has two opponent pieces, the value is -2.
+# if the row has two player pieces, the value is 2.
+# if the row has three opponent pieces, the value is -3, and it is a loss.
+# if the row has three player pieces, the value is 3, and it is a win.
+# Determining positional value
+# the center is the most valuable position, followed by the corners, and then the edges.
+# this is because the center eliminates 4 possible winning positions, the corners eliminate 3, and the edges eliminate 2.
+# to represent this, we can use a 3x3 matrix with the following values:
+# 3 2 3
+# 2 4 2
+# 3 2 3
+
+
 print("tic-tac-toe")
 
 board = list(range(9))
